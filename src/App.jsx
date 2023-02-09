@@ -21,7 +21,7 @@ export default function App() {
           <ScrollControls pages={10}>
             <Congressi />
           </ScrollControls>
-        </Suspense>
+        </Suspense>f
       </Canvas>
     </>
   )
@@ -31,7 +31,7 @@ export default function App() {
 export function Congressi({...props}) {
 
   const scroll = useScroll()
-  const {scene, nodes, materials, animations} = useGLTF('models/congressi-transformed.glb')
+  const {scene, nodes, materials, animations} = useGLTF('models/animation-transformed.glb')
 
   const {actions} = useAnimations(animations, scene)
 
@@ -65,4 +65,4 @@ export function Congressi({...props}) {
   return <primitive object={scene} {...props} />
 }
 
-useGLTF.preload('models/congressi-transformed.glb')
+useGLTF.preload('models/animation-transformed.glb')
