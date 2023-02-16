@@ -1,9 +1,31 @@
-import './App.css'
-
 import * as THREE from 'three'
-import {Suspense, useEffect, useLayoutEffect} from 'react'
+
+import {
+  Suspense,
+  useEffect,
+  useLayoutEffect,
+  useRef
+} from 'react'
+
 import {Canvas, useFrame} from '@react-three/fiber'
-import {Html, ScrollControls, Sky, useScroll, useGLTF, useAnimations} from '@react-three/drei'
+
+import {
+  Html,
+  ScrollControls,
+  useScroll,
+  useGLTF,
+  useAnimations,
+  Stats,
+  Grid,
+  Stage,
+  Environment,
+  SoftShadows,
+  AccumulativeShadows,
+} from '@react-three/drei'
+
+import {EffectComposer, Bloom, SSAO} from '@react-three/postprocessing'
+
+import {BlendFunction} from "postprocessing";
 
 const Loading = <Html><div>LOADING...</div></Html>;
 
@@ -11,43 +33,73 @@ export default function App() {
 
   return (
     <>
-      <Canvas shadows dpr={[1, 2]} camera={{fov: 120, near: 0.01, far: 300, position: [0, 1, 0]}} gl={{alpha: false, antialias: false}}>
-        <ambientLight intensity={0.5} />
-        <Sky sunPosition={[0, 1, 0]} inclination={0} azimuth={0.25} />
-        {/* <OrbitControls dampingFactor={0.05} makeDefault target={[0, 1, 0]} /> */}
-        <directionalLight position={[1, 2, 3]} intensity={1.5} />
+      <Canvas shadows dpr={[1, 2]} gl={{alpha: true, antialias: false}} camera={{ fov: 100 }}>
+
+        <ambientLight intensity={0.3} />
+
+
+        <fog attach="fog" args={['white', 0.0001, 100]} />
+
 
         <Suspense fallback={Loading}>
+
           <ScrollControls pages={10}>
-            <Congressi />
+            <Animation />
           </ScrollControls>
-        </Suspense>f
+
+        </Suspense>
+
+        {/* <EffectComposer>
+          <SSAO
+            blendFunction={BlendFunction.MULTIPLY} // Use NORMAL to see the effect
+            samples={1024}
+            radius={5}
+            intensity={10}
+          />
+        </EffectComposer> */}
+
+        <Environment preset="city" blur={0.8} background={false} />
+        <Stats />
       </Canvas>
     </>
   )
 
 }
 
-export function Congressi({...props}) {
+export function Animation({...props}) {
 
   const scroll = useScroll()
   const {scene, nodes, materials, animations} = useGLTF('models/animation-transformed.glb')
 
   const {actions} = useAnimations(animations, scene)
 
-  useLayoutEffect(() => Object.values(nodes).forEach((node) => (node.receiveShadow = node.castShadow = true)))
+  useEffect(() => Object.values(nodes).forEach((node) => {
 
-  useEffect(() => {
-    console.log(`Camera Position: ${ nodes['Camera'].position } `)
-    console.log(`Camera Aim ${ ['Camera_Aim'].position }`)
-    console.log(`Scroll Offset: ${ scroll.offset }`)
-  }, [scroll, nodes])
+    // console.log(node.name);
 
-  useEffect(() => void (actions['Action.001'].play().paused = true), [actions])
+    node.receiveShadow = node.castShadow = true
+
+    if (node.name === 'logo_tenso_geo_front') {
+      node.material.side = THREE.FrontSide
+    }
+
+    if (node.name === 'logo_tenso_geo_back') {
+      node.material.side = THREE.BackSide
+    }
+  }))
+
+  // useEffect(() => {
+  //   console.log(`Camera Position: ${ nodes['Camera'].position } `)
+  //   console.log(`Camera Aim ${ ['Camera_Aim'].position }`)
+  //   console.log(`Scroll Offset: ${ scroll.offset }`)
+  //   console.log(`Materials ${ materials }`)
+  // }, [scroll, nodes])
+
+  useEffect(() => void (actions['animation'].play().paused = true), [actions])
 
   useFrame((state, delta) => {
 
-    const action = actions['Action.001']
+    const action = actions['animation']
 
     // The offset is between 0 and 1, you can apply it to your models any way you like
     const offset = scroll.offset * 10
@@ -59,10 +111,14 @@ export function Congressi({...props}) {
     state.camera.lookAt(...camera_aim_null)
     state.camera.position.set(...camera_null)
 
-    console.log(scroll.offset)
+    // console.log(scroll.offset)
   })
 
-  return <primitive object={scene} {...props} />
+  return (
+    <>
+      <primitive object={scene} {...props} />
+    </>
+  )
 }
 
 useGLTF.preload('models/animation-transformed.glb')
