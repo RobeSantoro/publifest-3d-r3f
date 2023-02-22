@@ -16,49 +16,50 @@ import {
   useGLTF,
   useAnimations,
   Stats,
-  Grid,
-  Stage,
   Environment,
-  SoftShadows,
-  AccumulativeShadows,
+  MeshReflectorMaterial
 } from '@react-three/drei'
 
-import {EffectComposer, Bloom, SSAO} from '@react-three/postprocessing'
+// import {EffectComposer, Bloom, SSAO} from '@react-three/postprocessing'
+// import {BlendFunction} from "postprocessing";
 
-import {BlendFunction} from "postprocessing";
-
-const Loading = <Html><div>LOADING...</div></Html>;
+const Loading = <Html><div>... LOADING...</div></Html>;
 
 export default function App() {
 
   return (
     <>
-      <Canvas shadows dpr={[1, 2]} gl={{alpha: true, antialias: false}} camera={{ fov: 100 }}>
+      <Canvas shadows dpr={[1, 2]} gl={{alpha: true, antialias: false}} camera={{fov: 100, position: [0, 0, 0]}}>
 
         <ambientLight intensity={0.3} />
 
-
         <fog attach="fog" args={['white', 0.0001, 100]} />
-
 
         <Suspense fallback={Loading}>
 
           <ScrollControls pages={10}>
             <Animation />
           </ScrollControls>
+          <Environment preset="city" blur={0.8} background={false} />
+
+          {/* <mesh position={[0, 0, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+            <planeGeometry args={[100, 100]} />
+            <MeshReflectorMaterial
+              resolution={512}
+              blur={[400, 400]}
+              mixBlur={1}
+              mixStrength={1}
+              depthScale={0.001}
+              minDepthThreshold={0.1}
+              color="#ffffff"
+              metalness={0}
+              roughness={0.1}
+              reflectorOffset={-1}
+            />
+          </mesh> */}
 
         </Suspense>
 
-        {/* <EffectComposer>
-          <SSAO
-            blendFunction={BlendFunction.MULTIPLY} // Use NORMAL to see the effect
-            samples={1024}
-            radius={5}
-            intensity={10}
-          />
-        </EffectComposer> */}
-
-        <Environment preset="city" blur={0.8} background={false} />
         <Stats />
       </Canvas>
     </>
@@ -73,7 +74,16 @@ export function Animation({...props}) {
 
   const {actions} = useAnimations(animations, scene)
 
-  useEffect(() => Object.values(nodes).forEach((node) => {
+  // useEffect(() => {
+  //   console.log(`Camera Position: ${ nodes['Camera'].position } `)
+  //   console.log(`Camera Aim ${ ['Camera_Aim'].position }`)
+  //   console.log(`Scroll Offset: ${ scroll.offset }`)
+  //   console.log(`Materials ${ materials }`)
+  // }, [scroll, nodes])
+
+  useEffect(() => void (actions['animation'].play().paused = true), [actions])
+
+  useLayoutEffect(() => Object.values(nodes).forEach((node) => {
 
     // console.log(node.name);
 
@@ -87,15 +97,6 @@ export function Animation({...props}) {
       node.material.side = THREE.BackSide
     }
   }))
-
-  // useEffect(() => {
-  //   console.log(`Camera Position: ${ nodes['Camera'].position } `)
-  //   console.log(`Camera Aim ${ ['Camera_Aim'].position }`)
-  //   console.log(`Scroll Offset: ${ scroll.offset }`)
-  //   console.log(`Materials ${ materials }`)
-  // }, [scroll, nodes])
-
-  useEffect(() => void (actions['animation'].play().paused = true), [actions])
 
   useFrame((state, delta) => {
 
