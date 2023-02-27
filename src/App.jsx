@@ -23,6 +23,8 @@ import {
 import {EffectComposer, Bloom, SSAO} from '@react-three/postprocessing'
 import {BlendFunction} from "postprocessing";
 
+// import Overlay from "./Overlay";
+
 const Loading = <Html><div>... LOADING...</div></Html>;
 
 export default function App() {
@@ -37,10 +39,11 @@ export default function App() {
 
         <Suspense fallback={Loading}>
 
-          <ScrollControls pages={10}>
+          <ScrollControls pages={6} damping={2}>
             <Animation />
           </ScrollControls>
-          <Environment preset="city" blur={0} background={false}  />
+
+          <Environment preset="city" blur={0} background={false} />
 
         </Suspense>
 
@@ -50,6 +53,7 @@ export default function App() {
 
         <Stats />
       </Canvas>
+
     </>
   )
 
@@ -58,7 +62,7 @@ export default function App() {
 export function Animation({...props}) {
 
   const {scene, nodes, materials, animations} = useGLTF('models/animation-transformed.glb')
-  
+
   const scroll = useScroll()
 
   const {actions} = useAnimations(animations, scene)
