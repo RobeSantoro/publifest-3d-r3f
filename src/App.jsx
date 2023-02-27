@@ -20,8 +20,8 @@ import {
   MeshReflectorMaterial
 } from '@react-three/drei'
 
-// import {EffectComposer, Bloom, SSAO} from '@react-three/postprocessing'
-// import {BlendFunction} from "postprocessing";
+import {EffectComposer, Bloom, SSAO} from '@react-three/postprocessing'
+import {BlendFunction} from "postprocessing";
 
 const Loading = <Html><div>... LOADING...</div></Html>;
 
@@ -42,23 +42,11 @@ export default function App() {
           </ScrollControls>
           <Environment preset="city" blur={0.8} background={false} />
 
-          {/* <mesh position={[0, 0, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-            <planeGeometry args={[100, 100]} />
-            <MeshReflectorMaterial
-              resolution={512}
-              blur={[400, 400]}
-              mixBlur={1}
-              mixStrength={1}
-              depthScale={0.001}
-              minDepthThreshold={0.1}
-              color="#ffffff"
-              metalness={0}
-              roughness={0.1}
-              reflectorOffset={-1}
-            />
-          </mesh> */}
-
         </Suspense>
+
+        {/*       <EffectComposer>
+          <Bloom radius={1000}  />
+        </EffectComposer> */}
 
         <Stats />
       </Canvas>
@@ -81,8 +69,6 @@ export function Animation({...props}) {
   //   console.log(`Materials ${ materials }`)
   // }, [scroll, nodes])
 
-  useEffect(() => void (actions['animation'].play().paused = true), [actions])
-
   useLayoutEffect(() => Object.values(nodes).forEach((node) => {
 
     // console.log(node.name);
@@ -97,6 +83,9 @@ export function Animation({...props}) {
       node.material.side = THREE.BackSide
     }
   }))
+
+  useEffect(() => void (actions['animation'].play().paused = true), [actions])
+
 
   useFrame((state, delta) => {
 
