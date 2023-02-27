@@ -40,7 +40,7 @@ export default function App() {
           <ScrollControls pages={10}>
             <Animation />
           </ScrollControls>
-          <Environment preset="city" blur={0.8} background={false} />
+          <Environment preset="city" blur={0} background={false}  />
 
         </Suspense>
 
@@ -57,8 +57,9 @@ export default function App() {
 
 export function Animation({...props}) {
 
-  const scroll = useScroll()
   const {scene, nodes, materials, animations} = useGLTF('models/animation-transformed.glb')
+  
+  const scroll = useScroll()
 
   const {actions} = useAnimations(animations, scene)
 
@@ -72,8 +73,6 @@ export function Animation({...props}) {
   useLayoutEffect(() => Object.values(nodes).forEach((node) => {
 
     // console.log(node.name);
-
-    node.receiveShadow = node.castShadow = true
 
     if (node.name === 'logo_tenso_geo_front') {
       node.material.side = THREE.FrontSide
