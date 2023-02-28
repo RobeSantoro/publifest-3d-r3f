@@ -9,14 +9,6 @@ export function Meeting({...props}) {
     const scroll = useScroll()
     const {actions} = useAnimations(animations, scene)
 
-    useLayoutEffect(() => Object.values(nodes).forEach((node) => {
-        if (node.name == 'logo_tenso_geo_front') {
-            node.material.side = THREE.FrontSide
-        } else if (node.name == 'logo_tenso_geo_back') {
-            node.material.side = THREE.BackSide
-        }
-    }))
-
     useEffect(() => void (actions['meeting'].play().paused = true), [actions])
 
     useFrame((state, delta) => {

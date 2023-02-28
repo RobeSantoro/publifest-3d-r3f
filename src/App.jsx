@@ -2,7 +2,7 @@ import {Suspense} from 'react'
 import {Canvas} from '@react-three/fiber'
 import {Html, Scroll, ScrollControls, Stats, Environment} from '@react-three/drei'
 import {Meeting} from "./Meeting";
-import {Overlay} from "./Overlay";
+import {Texts} from "./Texts";
 
 const Loading = <Html><div>... LOADING...</div></Html>;
 
@@ -15,12 +15,12 @@ export default function App() {
         <fog attach="fog" args={['white', 0.0001, 100]} />
         {/* <Stats /> */}
         <Suspense fallback={Loading}>
-          <ScrollControls pages={8} damping={0.2}>
+          <ScrollControls pages={7} damping={0.2}>
 
             <Meeting />
 
             <Scroll html id="scroll" pages={7}>
-              <Overlay />
+              <Texts />
             </Scroll>
 
           </ScrollControls>

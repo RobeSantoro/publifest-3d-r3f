@@ -1,10 +1,11 @@
+import React from 'react';
+import './Texts.css';
 
-
-export function Overlay() {
+export function Texts() {
 
   return (
 
-    <div className="scroll">
+    <div className="scrollContainer">
       <div style={{height: "100vh"}}>
       </div>
       <div style={{height: "100vh"}}>
