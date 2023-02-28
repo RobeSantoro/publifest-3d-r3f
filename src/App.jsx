@@ -15,7 +15,6 @@ export default function App() {
 
   return (
     <>
-      <Overlay ref={overlay} caption={caption} scroll={scroll} />
 
       <Canvas shadows dpr={[1, 2]} gl={{alpha: true, antialias: false}} camera={{fov: 100, position: [0, 0, 0]}}>
 
@@ -32,6 +31,8 @@ export default function App() {
           <Environment preset="city" blur={0} background={false} />
         </Suspense>
       </Canvas>
+      <Overlay ref={overlay} caption={caption} scroll={scroll} />
+
     </>
   )
 }
