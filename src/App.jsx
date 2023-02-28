@@ -15,7 +15,6 @@ export default function App() {
 
   return (
     <>
-
       <Canvas shadows dpr={[1, 2]} gl={{alpha: true, antialias: false}} camera={{fov: 100, position: [0, 0, 0]}}>
 
         <ambientLight intensity={0.3} />
@@ -32,7 +31,6 @@ export default function App() {
         </Suspense>
       </Canvas>
       <Overlay ref={overlay} caption={caption} scroll={scroll} />
-
     </>
   )
 }

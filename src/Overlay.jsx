@@ -10,7 +10,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
     }}
     className="scroll">
     <div style={{ height: "100vh" }}></div>
-    <div style={{ height: "200vh" }}>
+    <div style={{ height: "100vh" }}>
       <div className="dot">
         <h1>Eventi Aziendali</h1>
         Organizzazione di Meeting e Eventi Aziendali
@@ -18,7 +18,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
       </div>
     </div>
     <div style={{ height: "100vh" }}></div>
-    <div style={{ height: "200vh" }}>
+    <div style={{ height: "100vh" }}>
       <div className="dot">
         <h1>Matrimoni e Cerimonie</h1>
         Ogni tipo di cerimonia: dai battesimi ai matrimoni
@@ -26,7 +26,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
       </div>
     </div>
     <div style={{ height: "100vh" }}></div>
-    <div style={{ height: "200vh" }}>
+    <div style={{ height: "100vh" }}>
       <div className="dot">
         <h1>Sagre e Feste</h1>
         Organizzazione di sagre e feste di ogni tipo
@@ -34,7 +34,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
       </div>
     </div>
     <div style={{ height: "100vh" }}></div>
-    <div style={{ height: "200vh" }}>
+    <div style={{ height: "100vh" }}>
       <div className="dot">
         <h1>Industria</h1>
         Capannoni per magazzini, officine, laboratori, uffici
@@ -42,7 +42,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
       </div>
     </div>
     <div style={{ height: "100vh" }}></div>
-    <div style={{ height: "200vh" }}>
+    <div style={{ height: "100vh" }}>
       <div className="dot">
         <h1>Fiere e Grandi Eventi</h1>
         Organizzazione di fiere e grandi eventi
@@ -50,7 +50,7 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
       </div>
     </div>
     <div style={{ height: "100vh" }}></div>
-    <div style={{ height: "200vh" }}>
+    <div style={{ height: "100vh" }}>
       <div className="dot">
         <h1>Contattaci</h1>
         Per qualsiasi informazione o preventivo
