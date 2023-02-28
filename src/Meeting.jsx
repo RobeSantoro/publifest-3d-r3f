@@ -6,7 +6,8 @@ import {useScroll, useGLTF, useAnimations} from '@react-three/drei'
 export function Meeting({...props}) {
 
     const {scene, nodes, materials, animations} = useGLTF('models/meeting-transformed.glb')
-    const scroll = useScroll()
+    const {scroll} = props
+    // const scroll = useScroll()
     const {actions} = useAnimations(animations, scene)
 
     useEffect(() => void (actions['meeting'].play().paused = true), [actions])
@@ -14,8 +15,10 @@ export function Meeting({...props}) {
     useFrame((state, delta) => {
         const action = actions['meeting']
 
-        const offset = scroll.offset * 10
-        action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * offset, 100, delta)
+        // const offset = scroll.offset * 10
+        // console.log(scroll.current);
+        const offset = scroll.current * 6
+        action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * offset, 5, delta)
 
         const camera_null = nodes['Camera'].position
         const camera_aim_null = nodes['Camera_Aim'].position
@@ -23,7 +26,7 @@ export function Meeting({...props}) {
         state.camera.position.set(...camera_null)
     })
 
-    return <primitive object={scene} {...props} />
+    return <primitive object={scene} /* {...props} */ />
 }
 
 useGLTF.preload('models/meeting-transformed.glb')
