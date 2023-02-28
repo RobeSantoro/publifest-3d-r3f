@@ -15,11 +15,11 @@ export default function App() {
         <fog attach="fog" args={['white', 0.0001, 100]} />
         <Stats />
         <Suspense fallback={Loading}>
-          <ScrollControls pages={7} damping={0.2}>
+          <ScrollControls pages={8} damping={0.2}>
 
             <Meeting />
 
-            <Scroll html page={7}>
+            <Scroll html id="scroll" pages={7}>
               <Overlay />
             </Scroll>
 
