@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html,
 body,
 #root {
@@ -7,14 +11,82 @@ body,
   width: 100%;
   height: 100%;
   overflow: auto;
-  background: linear-gradient(180deg, #ffffff 50%, #b9b9b9);
+}
+
+.scroll {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  overflow: hidden;
+}
+
+#root {
+  overflow: auto;
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  position: fixed;
+  overflow: hidden;
+  overscroll-behavior-y: none;
+  background-color: #b9b9b9;
+  background: linear-gradient(180deg, #ffffff 50%, #b9b9b9);
+  font-family: "Inter var", sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+
+.scroll {
+  position: sticky;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  scroll-snap-type: y proximity;
+}
+
+.scroll > div {
+  scroll-snap-align: start;
+}
+
+.area {
+  pointer-events: none;
+  position: sticky;
+  top: 0px;
+  display: inline-block;
+  max-width: 700px;
+  padding: 0;
+  padding: 80px;
+  color: #023976;
+  line-height: 1.6em;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+}
+
+.area>h1 {
+  -webkit-font-smoothing: auto;
+  pointer-events: none;
+  color: #023976;
+  font-size: 3em;
+  font-weight: 800;
+  line-height: 1em;
+  margin: 0;
+  margin-bottom: 0.25em;
+}
+
+@media only screen and (max-width: 800px) {
+  .area>h1 {
+    font-size: 3em;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .area>h1 {
+    font-size: 3em;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .area>h1 {
+    font-size: 3em;
+  }
 }
