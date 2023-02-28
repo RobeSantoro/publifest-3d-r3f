@@ -21,7 +21,7 @@ export default function App() {
 
         <ambientLight intensity={0.3} />
         <fog attach="fog" args={['white', 0.0001, 100]} />
-        {/* <Stats /> */}
+        <Stats />
         <Suspense fallback={Loading}>
           {/* <ScrollControls pages={7} damping={0.2}> */}
           <Meeting scroll={scroll} />
@@ -32,8 +32,6 @@ export default function App() {
           <Environment preset="city" blur={0} background={false} />
         </Suspense>
       </Canvas>
-
-
     </>
   )
 }

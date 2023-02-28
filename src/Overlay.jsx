@@ -9,41 +9,42 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
       // caption.current.innerText = scroll.current.toFixed(2)
     }}
     className="scroll">
-    <div style={{ height: "400vh" }}>
-      <div className="dot">
-        <h1></h1>
-      </div>
-    </div>
-    <div style={{ height: "600vh" }}>
+    <div style={{ height: "500vh" }}></div>
+    <div style={{ height: "800vh" }}>
       <div className="dot">
         <h1>Eventi Aziendali</h1>
         Organizzazione di meeting e eventi aziendali
       </div>
     </div>
+    <div style={{ height: "200vh" }}></div>
     <div style={{ height: "600vh" }}>
       <div className="dot">
         <h1>Matrimoni e Cerimonie</h1>
         Ogni tipo di cerimonia: dai battesimi ai matrimoni
       </div>
     </div>
+    <div style={{ height: "200vh" }}></div>
     <div style={{ height: "600vh" }}>
       <div className="dot">
         <h1>Sagre e Feste</h1>
         Organizzazione di sagre e feste di ogni tipo
       </div>
     </div>
+    <div style={{ height: "200vh" }}></div>
     <div style={{ height: "600vh" }}>
       <div className="dot">
         <h1>Industria</h1>
         Capannoni per magazzini, officine, laboratori, uffici
       </div>
     </div>
+    <div style={{ height: "200vh" }}></div>
     <div style={{ height: "600vh" }}>
       <div className="dot">
         <h1>Fiere e Grandi Eventi</h1>
         Organizzazione di fiere e grandi eventi
       </div>
     </div>
+    <div style={{ height: "200vh" }}></div>
     <div style={{ height: "600vh" }}>
       <div className="dot">
         <h1>Contattaci</h1>
