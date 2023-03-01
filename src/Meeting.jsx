@@ -18,7 +18,7 @@ export function Meeting({...props}) {
         // const offset = scroll.offset * 10
         // console.log(scroll.current);
         const offset = scroll.current * 10
-        action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * offset, 10, delta)
+        action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * offset, 8, delta)
 
         const camera_null = nodes['Camera'].position
         const camera_aim_null = nodes['Camera_Aim'].position

@@ -15,8 +15,9 @@ export default function App() {
 
   return (
     <>
-      <Canvas shadows dpr={[1, 2]} gl={{alpha: true, antialias: false}} camera={{fov: 100, position: [0, 0, 0]}}>
+      <Overlay ref={overlay} caption={caption} scroll={scroll} />
 
+      <Canvas shadows dpr={[1, 2]} gl={{alpha: true, antialias: false}} camera={{fov: 100, position: [0, 0, 0]}}>
         <ambientLight intensity={0.3} />
         <fog attach="fog" args={['white', 0.0001, 100]} />
         <Stats />
@@ -30,7 +31,6 @@ export default function App() {
           <Environment preset="city" blur={0} background={false} />
         </Suspense>
       </Canvas>
-      <Overlay ref={overlay} caption={caption} scroll={scroll} />
     </>
   )
 }
