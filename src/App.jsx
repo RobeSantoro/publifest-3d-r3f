@@ -14,12 +14,11 @@ const Loading = <Html><div>... LOADING...</div></Html>;
 export default function App() {
 
   const overlay = useRef()
-  const caption = useRef()
   const scroll = useRef(0)
 
   return (
     <>
-      <Overlay ref={overlay} caption={caption} scroll={scroll} />
+      <Overlay ref={overlay} scroll={scroll} />
 
       <Canvas shadows dpr={[1, 2]} gl={{alpha: true, antialias: false}} camera={{fov: 100, position: [0, 0, 0]}}>
         <Camera scroll={scroll} />
