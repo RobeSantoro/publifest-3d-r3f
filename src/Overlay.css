@@ -36,38 +36,41 @@ body {
 
 .dot {
     pointer-events: none;
-    position: sticky;
+    /* position: sticky; */
     top: 0px;
-    display: inline-block;
-    max-width: 700px;
-    padding: 250px 500px;
+    /* display: inline-block; */
+    /* max-width: 700px; */
+    padding: 200px 400px;
     /* color: #023976; */
     color: linear-gradient(90deg, #026eb0 0%, #023976 100%);
-    line-height: 1.6em;
-    font-size: 18px;
     letter-spacing: 1.5px;
+    font-size: 1em;
+    line-height: 1em;
+    color: #002652;
+    margin-bottom: 0.4em;
+
+
 }
 
-.dot>h1 {
+.dot>h2 {
     -webkit-font-smoothing: auto;
     pointer-events: none;
     color: #023976;
-    font-size: 3.5em;
     font-weight: 800;
-    line-height: 1em;
     margin: 0;
-    margin-bottom: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 3em;
 }
 
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1480px) {
 
     .dot {
         padding: 200px 130px;
     }
 
-    .dot>h1 {
+    .dot>h2 {
         font-size: 3em;
-        /* color: blue; */
+        color: magenta;
     }
 }
 
@@ -78,9 +81,9 @@ body {
         padding: 80px 30px;
     }
 
-    .dot>h1 {
+    .dot>h2 {
         font-size: 3em;
-        /* color: blue; */
+        color: blue;
     }
 }
 
@@ -89,9 +92,9 @@ body {
         padding: 80px 30px;
     }
 
-    .dot>h1 {
+    .dot>h2 {
         font-size: 3em;
-        /* color: green; */
+        color: green;
     }
 }
 
@@ -101,9 +104,9 @@ body {
         padding: 80px 30px;
     }
 
-    .dot>h1 {
+    .dot>h2 {
         font-size: 3em;
-        /* color:red; */
+        color:red;
 
     }
 }
