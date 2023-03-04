@@ -1,25 +1,22 @@
 import * as THREE from 'three'
-import {useEffect, useLayoutEffect} from 'react'
+import {useEffect} from 'react'
 import {useFrame} from '@react-three/fiber'
 import {useScroll, useGLTF, useAnimations} from '@react-three/drei'
 
-export function Camera({...props}) {
+export default function Camera({...props}) {
 
+    const scroll = useScroll()
+    
     const {scene, nodes, animations} = useGLTF('models/camera-transformed.glb')
-
-    const {scroll} = props
-    // const scroll = useScroll()
-
     const {actions} = useAnimations(animations, scene)
 
     useEffect(() => void (actions['camera'].play().paused = true), [actions])
 
     useFrame((state, delta) => {
+        
+        const offset = scroll.offset * 10
+        
         const action = actions['camera']
-
-        // const offset = scroll.offset * 10
-        const offset = scroll.current * 10
-
         action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * offset, 8, delta)
 
         const camera_null = nodes['Camera'].position
