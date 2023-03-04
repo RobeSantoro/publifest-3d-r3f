@@ -30,7 +30,7 @@
 
 @media only screen and (max-width: 600px) {
   .text>h2 {
-    font-size: 6em;
+    font-size: 3em;
     color: blue;
   }
 }
