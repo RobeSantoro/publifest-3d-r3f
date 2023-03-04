@@ -28,21 +28,6 @@ export default function App() {
         <Environment preset="city" blur={0} background={false} />
 
       </Suspense>
-      <mesh position={[0, 0.01, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[200, 200]} />
-        <MeshReflectorMaterial
-          blur={[2000, 2000]}
-          resolution={2048}
-          mixBlur={10}
-          mixStrength={1}
-          roughness={0.9}
-          depthScale={0}
-          minDepthThreshold={0.4}
-          maxDepthThreshold={1.4}
-          color="#cccccc"
-          metalness={0.1}
-        />
-      </mesh>
 
       {/* <Stats /> */}
       {/* <Perf /> */}
