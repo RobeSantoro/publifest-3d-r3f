@@ -4,9 +4,6 @@ import {useState} from 'react';
 import {useFrame, useThree} from '@react-three/fiber';
 import {Html, useScroll} from '@react-three/drei';
 
-
-
-
 export default function Texts({props}) {
 
   const scrollData = useScroll();
@@ -22,36 +19,36 @@ export default function Texts({props}) {
     {
       id: 1,
       title: "Cerimonie",
-      text: "Ogni tipo di cerimonia: dai Battesimi ai Matrimoni",
-      position: [0, 0, 0],
-      rotation: [0, 0, 0],
+      text: "Ogni tipo di 1cerimonia: dai Battesimi ai Matrimoni",
+      position: [18, 5.5, 97],
+      rotation: [0,-1.55, 0],
     },
     {
       id: 2,
       title: "Sagre e Feste",
       text: "Organizzazione di sagre e feste di ogni tipo",
-      position: [0, 0, 0],
+      position: [0, 300, 0],
       rotation: [0, 0, 0],
     },
     {
       id: 3,
       title: "Industria",
       text: "Capannoni per magazzini, officine, laboratori, uffici",
-      position: [0, 0, 0],
+      position: [0, 300, 0],
       rotation: [0, 0, 0],
     },
     {
       id: 4,
       title: "Fiere e Grandi Eventi",
       text: "Organizzazione di fiere e grandi eventi",
-      position: [0, 0, 0],
+      position: [0, 300, 0],
       rotation: [0, 0, 0],
     },
     {
       id: 5,
       title: "Contattaci",
       text: "Per qualsiasi informazione o preventivo",
-      position: [0, 0, 0],
+      position: [0, 300, 0],
       rotation: [0, 0, 0],
     },
   ]
