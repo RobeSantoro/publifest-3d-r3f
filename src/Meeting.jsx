@@ -1,3 +1,4 @@
+import * as THREE from 'three'
 import {useEffect, useLayoutEffect, useRef} from 'react'
 import {useFrame} from '@react-three/fiber'
 import {useScroll, useGLTF, useAnimations} from '@react-three/drei'
@@ -12,13 +13,9 @@ export default function Meeting(props) {
     useEffect(() => void (actions['meeting'].play().paused = true), [actions])
 
     useFrame((state, delta) => {
-        actions['meeting'].time = scroll.offset * props.multiplier
+        const action = actions['meeting']
+        action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * scroll.offset * props.multiplier, 5, delta)
     })
-
-    useLayoutEffect(() => {
-        nodes['GroundDisk'].visible = false
-    }, [])
-
 
     return <primitive object={scene} props />
 }
