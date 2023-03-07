@@ -19,9 +19,9 @@ export default function Texts({props}) {
     {
       id: 1,
       title: "Cerimonie",
-      text: "Ogni tipo di 1cerimonia: dai Battesimi ai Matrimoni",
+      text: "Ogni tipo di cerimonia: dai Battesimi ai Matrimoni",
       position: [18, 5.5, 97],
-      rotation: [0,-1.55, 0],
+      rotation: [0, -1.55, 0],
     },
     {
       id: 2,
@@ -61,11 +61,13 @@ export default function Texts({props}) {
     <>
       {Areas.map((area) => (
         <Html
+          prepend
+          className="text"
+          as='div'
           key={area.id}
           transform
           position={area.position}
           rotation={area.rotation}
-          className="text"
           portal={{current: scrollData.fixed}}
         >
           <h2>{area.title}</h2>
