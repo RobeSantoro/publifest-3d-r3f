@@ -5,7 +5,7 @@ import {useScroll, useGLTF, useAnimations} from '@react-three/drei'
 
 export default function Camera(props) {
 
-    const scroll = useScroll()
+    const scrollData = useScroll()
     let fogFar = 70
 
     const {scene, nodes, animations} = useGLTF('models/camera-transformed.glb')
@@ -21,9 +21,9 @@ export default function Camera(props) {
         state.camera.updateProjectionMatrix()
 
         const action = actions['camera']
-        action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * scroll.offset * props.multiplier, 8, delta)
+        action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * scrollData.offset * props.multiplier, 8, delta)
 
-        fogFar = THREE.MathUtils.lerp(10, 90, scroll.offset*100)
+        fogFar = THREE.MathUtils.lerp(10, 90, scrollData.offset*100)
     })
 
     return (

@@ -10,7 +10,7 @@ import {useScroll, useGLTF, useAnimations, MeshReflectorMaterial} from '@react-t
 
 export default function Ground(props) {
 
-  const scroll = useScroll()
+  const scrollData = useScroll()
 
   const group = useRef()
   const {nodes, materials, animations} = useGLTF('models/ground-transformed.glb')
@@ -28,7 +28,7 @@ export default function Ground(props) {
 
         <mesh
           name="GroundDisk"
-          castShadow
+          // castShadow
           receiveShadow
           position={[0, 0, 0]}
           rotation={[-Math.PI / 2, 0, 0]}

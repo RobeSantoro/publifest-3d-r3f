@@ -13,15 +13,15 @@ export default function Texts({props}) {
       id: 0,
       title: "Eventi Aziendali",
       text: "Organizzazione di meeting e eventi aziendali",
-      position: [10, 7, 35],
-      rotation: [0, 0.75, 0],
+      position: [11, 8, 33],
+      rotation: [0, 0.85, 0],
     },
     {
       id: 1,
       title: "Cerimonie",
       text: "Ogni tipo di cerimonia: dai Battesimi ai Matrimoni",
-      position: [18, 5.5, 97],
-      rotation: [0, -1.55, 0],
+      position: [18, 8, 98.5],
+      rotation: [0, -1.585, 0],
     },
     {
       id: 2,
@@ -61,9 +61,10 @@ export default function Texts({props}) {
     <>
       {Areas.map((area) => (
         <Html
-          prepend
-          className="text"
-          as='div'
+
+
+          className="AreaTematica"
+
           key={area.id}
           transform
           position={area.position}
@@ -71,7 +72,7 @@ export default function Texts({props}) {
           portal={{current: scrollData.fixed}}
         >
           <h2>{area.title}</h2>
-          <p>{area.text}</p>
+          <span>{area.text}</span>
           <button onClick={clicked} className="btn">Scopri di più</button>
         </Html>
       ))}
