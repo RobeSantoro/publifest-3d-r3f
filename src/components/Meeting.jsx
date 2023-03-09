@@ -7,7 +7,7 @@ export default function Meeting(props) {
 
     const scroll = useScroll()
 
-    const {scene, animations, nodes} = useGLTF('models/meeting-transformed.glb')
+    const {scene, animations, nodes} = useGLTF('/meeting-transformed.glb')
     const {actions} = useAnimations(animations, scene)
 
     useEffect(() => void (actions['meeting'].play().paused = true), [actions])
@@ -20,4 +20,4 @@ export default function Meeting(props) {
     return <primitive object={scene} props />
 }
 
-useGLTF.preload('models/meeting-transformed.glb')
+useGLTF.preload('/meeting-transformed.glb')

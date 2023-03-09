@@ -3,13 +3,27 @@ import {Canvas} from '@react-three/fiber'
 import {Html, ScrollControls, Environment, Stats} from '@react-three/drei'
 import {Perf} from 'r3f-perf'
 
-import Camera from "./Camera";
-import Meeting from "./Meeting";
-import Ground from "./Ground";
+import Camera from "./components/Camera";
+import Meeting from "./components/Meeting";
+import Cerimonie from "./components/Cerimonie";
+import Ground from "./components/Ground";
 
-import Texts from "./Texts";
+import Texts from "./components/Texts/Texts";
 
-const Loading = <Html><div>LOADING...</div></Html>;
+const Loading = <Html fullscreen style={{
+  color: 'grey',
+  padding: '1rem',
+  borderRadius: '1rem',
+  fontSize: '2rem',
+  fontWeight: 'bold',
+  // position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)'
+}}
+>
+  <div>Loading</div>
+</Html>;
 
 export default function App() {
 
@@ -26,7 +40,8 @@ export default function App() {
           <Texts style={{zIndex: 100}} />
           <Camera multiplier={globalScrollMultiplier} />
           <Meeting multiplier={globalScrollMultiplier} />
-          <Ground multiplier={globalScrollMultiplier} />
+          <Cerimonie multiplier={globalScrollMultiplier} />
+          <Ground scale={[200,200,200]} position={[0,-0.1,50]} multiplier={globalScrollMultiplier} />
         </ScrollControls>
         <Environment preset="city" blur={0} background={false} />
       </Suspense>
