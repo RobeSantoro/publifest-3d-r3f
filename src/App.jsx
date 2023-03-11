@@ -1,34 +1,55 @@
-import {Suspense} from 'react'
+import {Suspense, useRef, useEffect, useLayoutEffect} from 'react'
 import {Canvas} from '@react-three/fiber'
-import {Html, Scroll, ScrollControls, Stats, Environment} from '@react-three/drei'
-import {Meeting} from "./Meeting";
-import {Texts} from "./Texts";
+import {Html, ScrollControls, Environment, Stats} from '@react-three/drei'
+import {Perf} from 'r3f-perf'
 
-const Loading = <Html><div>... LOADING...</div></Html>;
+import Camera from "./components/Camera";
+import Meeting from "./components/Meeting";
+import Cerimonie from "./components/Cerimonie";
+import Ground from "./components/Ground";
+
+import Texts from "./components/Texts/Texts";
+
+const Loading = <Html fullscreen style={{
+  color: 'grey',
+  padding: '1rem',
+  borderRadius: '1rem',
+  fontSize: '2rem',
+  fontWeight: 'bold',
+  // position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)'
+}}
+>
+  <div>Loading</div>
+</Html>;
 
 export default function App() {
 
+  const globalScrollMultiplier = 6
+
   return (
-    <>
-      <Canvas shadows dpr={[1, 2]} gl={{alpha: true, antialias: false}} camera={{fov: 100, position: [0, 0, 0]}}>
-        <ambientLight intensity={0.3} />
-        <fog attach="fog" args={['white', 0.0001, 100]} />
-        {/* <Stats /> */}
-        <Suspense fallback={Loading}>
-          <ScrollControls pages={7} damping={0.2}>
+    <Canvas shadows dpr={[1, 2]} gl={{alpha: true, antialias: true}} camera={{fov: 100, position: [0, 0, 0], near: 1, far: 150} }>
 
-            <Meeting />
+      <ambientLight intensity={0.3} />
+      {/* <fog attach="fog" args={['white', 0.0001, 90]} /> */}
 
-            <Scroll html id="scroll" pages={7}>
-              <Texts />
-            </Scroll>
+      <Suspense fallback={Loading}>
+        <ScrollControls pages={6} damping={0.1}>
+          <Texts style={{zIndex: 100}} />
+          <Camera multiplier={globalScrollMultiplier} />
+          <Meeting multiplier={globalScrollMultiplier} />
+          <Cerimonie multiplier={globalScrollMultiplier} />
+          <Ground scale={[200,200,200]} position={[0,-0.1,50]} multiplier={globalScrollMultiplier} />
+        </ScrollControls>
+        <Environment preset="city" blur={0} background={false} />
+      </Suspense>
 
-          </ScrollControls>
-          <Environment preset="city" blur={0} background={false} />
-        </Suspense>
+      {/* <Stats  /> */}
+      {/* <Perf minimal position="bottom-right"/> */}
 
-      </Canvas>
-    </>
+    </Canvas>
   )
 }
 

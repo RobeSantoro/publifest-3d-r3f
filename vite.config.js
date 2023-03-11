@@ -7,4 +7,3 @@ export default defineConfig({
   assetsInclude: ["**/*.glb", "**/*.gltf", "**/*.wasm"],
   publicDir: ['public'],
 })
-
