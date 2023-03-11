@@ -14,7 +14,8 @@ export default function Meeting(props) {
 
     useFrame((state, delta) => {
         const action = actions['meeting']
-        action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * scroll.offset * props.multiplier, 5, delta)
+        // action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * scroll.offset * props.multiplier, 5, delta)
+        action.time = scroll.offset * props.multiplier
     })
 
     return <primitive object={scene} props />
