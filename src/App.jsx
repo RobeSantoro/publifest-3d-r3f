@@ -16,7 +16,7 @@ const Loading = <Html fullscreen style={{
   borderRadius: '1rem',
   fontSize: '2rem',
   fontWeight: 'bold',
-  // position: 'absolute',
+  position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)'
@@ -36,7 +36,7 @@ export default function App() {
       {/* <fog attach="fog" args={['white', 0.0001, 90]} /> */}
 
       <Suspense fallback={Loading}>
-        <ScrollControls pages={6} damping={0.1}>
+        <ScrollControls pages={6} damping={0.25}>
           <Texts style={{zIndex: 100}} />
           <Camera multiplier={globalScrollMultiplier} />
           <Meeting multiplier={globalScrollMultiplier} />
@@ -46,8 +46,8 @@ export default function App() {
         <Environment preset="city" blur={0} background={false} />
       </Suspense>
 
-      {/* <Stats  /> */}
-      {/* <Perf minimal position="bottom-right"/> */}
+      <Stats  />
+      <Perf minimal position="bottom-right"/>
 
     </Canvas>
   )

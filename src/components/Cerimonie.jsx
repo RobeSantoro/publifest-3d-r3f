@@ -5,17 +5,18 @@ import {useScroll, useGLTF, useAnimations} from '@react-three/drei'
 
 export default function Cerimonie(props) {
 
-  const scroll = useScroll()
+  const scrollData = useScroll()
 
   const {scene, animations} = useGLTF('/cerimonie-transformed.glb')
   const {actions} = useAnimations(animations, scene)
 
-  // useEffect(() => void (actions['cerimonie'].play().paused = true), [actions])
+  useEffect(() => void (actions['cerimonie'].play().paused = true), [actions])
 
-  // useFrame((state, delta) => {
-  //   const action = actions['cerimonie']
-  //   action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * scroll.offset * props.multiplier, 5, delta)
-  // })
+  useFrame((state, delta) => {
+    const action = actions['cerimonie']
+    // action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * scroll.offset * props.multiplier, 5, delta)
+    action.time = scrollData.offset * props.multiplier
+  })
 
   return <primitive object={scene} props />
 }
