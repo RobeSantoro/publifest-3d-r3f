@@ -46,8 +46,8 @@ export default function App() {
         <Environment preset="city" blur={0} background={false} />
       </Suspense>
 
-      <Stats  />
-      <Perf minimal position="bottom-right"/>
+      {/* <Stats  /> */}
+      {/* <Perf minimal position="bottom-right"/> */}
 
     </Canvas>
   )

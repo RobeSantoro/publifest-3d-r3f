@@ -20,7 +20,7 @@ export default function Texts({props}) {
       id: 1,
       title: "Cerimonie",
       text: " Ogni tipo di cerimonia: dai Battesimi ai Matrimoni",
-      position: [20, 9, 98.5],
+      position: [15, 9, 98.5],
       rotation: [0, -1.585, 0],
     },
     {
