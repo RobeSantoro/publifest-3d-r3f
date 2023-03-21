@@ -1,12 +1,12 @@
-import {useRef, useEffect, useLayoutEffect} from 'react'
+import {useRef, useEffect, useLayoutEffect, lazy, Suspense} from 'react'
 import {useFrame} from '@react-three/fiber';
 import {ScrollControls, Environment} from '@react-three/drei'
 
+import Ground from "./Ground";
 import Camera from "./Camera";
 import Meeting from "./Meeting";
-import Cerimonie from "./Cerimonie";
-import Sagre from "./Sagre";
-import Ground from "./Ground";
+const Cerimonie = lazy(() => import("./Cerimonie"));
+const Sagre = lazy(() => import("./Sagre"));
 
 import Texts from "./Texts/Texts";
 
@@ -17,15 +17,17 @@ export default function World() {
   return (
     <>
       <ScrollControls pages={3} damping={0.5}>
-        <Texts style={{zIndex: 100}} />
         <Camera multiplier={globalScrollMultiplier} />
         <Meeting multiplier={globalScrollMultiplier} />
-        <Cerimonie multiplier={globalScrollMultiplier} />
-        <Sagre multiplier={globalScrollMultiplier} />
+        <Suspense fallback={null}>
+          <Cerimonie multiplier={globalScrollMultiplier} />
+          <Sagre multiplier={globalScrollMultiplier} />
+        </Suspense>
         <Ground
           position={[-50, -0.1, -50]}
           scale={[500, 500, 500]}
           multiplier={globalScrollMultiplier} />
+        <Texts style={{zIndex: 100}} />
       </ScrollControls>
       <Environment preset="city" blur={0} background={false} />
     </>

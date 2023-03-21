@@ -1,6 +1,6 @@
-import {Suspense, useRef, useEffect, useLayoutEffect} from 'react'
+import {Suspense, useRef} from 'react'
 import {Canvas} from '@react-three/fiber'
-import {Html, ScrollControls, Environment, Stats} from '@react-three/drei'
+import {Html, Stats} from '@react-three/drei'
 import {Perf} from 'r3f-perf'
 
 import World from './components/World'
@@ -22,12 +22,9 @@ const Loading = <Html fullscreen style={{
 
 export default function App() {
 
-  const globalScrollMultiplier = 6
-  const camera_position = useRef([0, 0, 0])
-
   return (
     <Canvas
-      frameloop='always'
+      frameloop='demand'
       shadows
       dpr={[1, 2]}
       gl={{alpha: true, antialias: true, preserveDrawingBuffer: true}}
@@ -40,7 +37,7 @@ export default function App() {
       </Suspense>
 
       {/* <Stats  /> */}
-      {/* <Perf  position="bottom-right"/> */}
+      {/* <Perf position="bottom-right"/> */}
 
     </Canvas>
   )
