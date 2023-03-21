@@ -10,13 +10,12 @@ export default function sagre(props) {
     const {scene, animations, nodes} = useGLTF('/sagre-transformed.glb')
     const {actions} = useAnimations(animations, scene)
 
-    // useEffect(() => void (actions['sagre'].play().paused = true), [actions])
+    useEffect(() => void (actions['sagre'].play().paused = true), [actions])
 
     useFrame((state, delta) => {
         const action = actions['sagre']
-
         // action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * scroll.offset * props.multiplier, 5, delta)
-        // action.time = scrollData.offset * props.multiplier
+        action.time = scrollData.offset * props.multiplier
 
         const carosello = nodes['Carosello']        // Animate the rotation Y of the Carosello over time
         carosello.rotation.y = carosello.rotation.y + delta
