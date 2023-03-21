@@ -1,5 +1,4 @@
-import * as THREE from 'three'
-import {useEffect, useLayoutEffect, useRef} from 'react'
+import {useEffect} from 'react'
 import {useFrame} from '@react-three/fiber'
 import {useScroll, useGLTF, useAnimations} from '@react-three/drei'
 
@@ -14,11 +13,10 @@ export default function sagre(props) {
 
     useFrame((state, delta) => {
         const action = actions['sagre']
-        // action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * scroll.offset * props.multiplier, 5, delta)
         action.time = scrollData.offset * props.multiplier
 
-        const carosello = nodes['Carosello']        // Animate the rotation Y of the Carosello over time
-        carosello.rotation.y = carosello.rotation.y + delta
+        const carosello = nodes['carosello']
+        carosello.rotation.y = carosello.rotation.y + 0.01
     })
 
     return <primitive object={scene} props />

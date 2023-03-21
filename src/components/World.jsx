@@ -1,5 +1,4 @@
-import {useRef, useEffect, useLayoutEffect, lazy, Suspense} from 'react'
-import {useFrame} from '@react-three/fiber';
+import {lazy, Suspense} from 'react'
 import {ScrollControls, Environment} from '@react-three/drei'
 
 import Ground from "./Ground";
@@ -24,12 +23,12 @@ export default function World() {
           <Sagre multiplier={globalScrollMultiplier} />
         </Suspense>
         <Ground
-          position={[-50, -0.1, -50]}
+          position={[-50, -0.025, -50]}
           scale={[500, 500, 500]}
           multiplier={globalScrollMultiplier} />
         <Texts style={{zIndex: 100}} />
       </ScrollControls>
-      <Environment preset="city" blur={0} background={false} />
+      <Environment preset="city" blur={1} background={false} />
     </>
   )
 }

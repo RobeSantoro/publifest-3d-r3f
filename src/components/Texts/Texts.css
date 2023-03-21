@@ -21,35 +21,6 @@
   width: calc(30vh + 30vw);
 }
 
-/* 
-@media only screen and (max-width: 800px) {
-  .AreaTematica>h2 {
-    font-size: 3em;
-    color: red;
-;
-  }
-}
-
-@media only screen and (max-width: 700px) {
-  .AreaTematica>h2 {
-    font-size: 3em;
-    color: green;
-
-  }
-}
-
-@media only screen and (max-width: 600px) {
-
-  .text {
-    font-size: 1.2em;
-    color: blue;
-  }
-  .text>h2 {
-    font-size: 4em;
-    color: blue;
-  }
-} */
-
 .btn {
   display: inline-block;
   margin-top: 1em;
@@ -62,4 +33,5 @@
   z-index: 20;
   color: #ffffff;
   border-radius: 10px;
+  text-decoration: none;
 }

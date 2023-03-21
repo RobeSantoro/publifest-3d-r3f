@@ -1,11 +1,11 @@
-import {Suspense, useRef} from 'react'
+import {Suspense} from 'react'
 import {Canvas} from '@react-three/fiber'
 import {Html, Stats} from '@react-three/drei'
 import {Perf} from 'r3f-perf'
 
 import World from './components/World'
 
-const Loading = <Html fullscreen style={{
+const Loading = <Html style={{
   color: 'grey',
   padding: '1rem',
   borderRadius: '1rem',
@@ -24,7 +24,7 @@ export default function App() {
 
   return (
     <Canvas
-      frameloop='demand'
+      frameloop='always'
       shadows
       dpr={[1, 2]}
       gl={{alpha: true, antialias: true, preserveDrawingBuffer: true}}
@@ -36,8 +36,8 @@ export default function App() {
         <World />
       </Suspense>
 
-      {/* <Stats  /> */}
-      {/* <Perf position="bottom-right"/> */}
+      <Perf position="bottom-right" />
+      {/* <Stats /> */}
 
     </Canvas>
   )
