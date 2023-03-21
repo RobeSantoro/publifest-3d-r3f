@@ -22,16 +22,9 @@ export default function Camera(props) {
         state.camera.lookAt(...camera_aim_null)
         state.camera.position.set(...camera_null)
         state.camera.updateProjectionMatrix()
-
-        fogFar = THREE.MathUtils.lerp(10, 90, scrollData.offset*100)
     })
 
-    return (
-        <>
-            <primitive object={scene} props />
-            <fog attach="fog" args={['white', 0.0001, fogFar]} />
-        </>
-    )
+    return <primitive object={scene} props />
 }
 
 useGLTF.preload('/camera-transformed.glb')

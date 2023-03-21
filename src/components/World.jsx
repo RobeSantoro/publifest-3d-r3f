@@ -28,6 +28,7 @@ export default function World() {
           multiplier={globalScrollMultiplier} />
         <Texts style={{zIndex: 100}} />
       </ScrollControls>
+      <fog attach="fog" args={['white', 0.0001, 70]} />
       <Environment preset="city" blur={1} background={false} />
     </>
   )

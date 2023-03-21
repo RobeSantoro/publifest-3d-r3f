@@ -6,7 +6,7 @@ export default function sagre(props) {
 
     const scrollData = useScroll()
 
-    const {scene, animations, nodes} = useGLTF('/sagre-transformed.glb')
+    const {scene, animations, nodes} = useGLTF('/sagre-transformed.glb', false)
     const {actions} = useAnimations(animations, scene)
 
     useEffect(() => void (actions['sagre'].play().paused = true), [actions])
