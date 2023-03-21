@@ -1,8 +1,6 @@
-import './Texts.css';
 import React from 'react';
-import {useState} from 'react';
-import {useFrame, useThree} from '@react-three/fiber';
 import {Html, useScroll} from '@react-three/drei';
+import './Texts.css';
 
 export default function Texts({props}) {
 
@@ -13,22 +11,25 @@ export default function Texts({props}) {
       id: 0,
       title: "Eventi Aziendali",
       text: "Organizzazione di meeting e eventi aziendali",
-      position: [11, 9, 33],
-      rotation: [0, 0.85, 0],
+      position: [11, 11, 33],
+      rotation: [0, 0.72, 0],
+      url: "https://www.google.com",
     },
     {
       id: 1,
       title: "Cerimonie",
       text: " Ogni tipo di cerimonia: dai Battesimi ai Matrimoni",
-      position: [20, 9, 98.5],
+      position: [15, 10, 98.5],
       rotation: [0, -1.585, 0],
+      url: "https://www.google.com",
     },
     {
       id: 2,
       title: "Sagre e Feste",
       text: "Organizzazione di sagre e feste di ogni tipo",
-      position: [0, 300, 0],
-      rotation: [0, 0, 0],
+      position: [-232, 11, 87],
+      rotation: [0, 2.30, 0],
+      url: "https://www.google.com",
     },
     {
       id: 3,
@@ -36,6 +37,7 @@ export default function Texts({props}) {
       text: "Capannoni per magazzini, officine, laboratori, uffici",
       position: [0, 300, 0],
       rotation: [0, 0, 0],
+      url: "https://www.google.com",
     },
     {
       id: 4,
@@ -43,6 +45,7 @@ export default function Texts({props}) {
       text: "Organizzazione di fiere e grandi eventi",
       position: [0, 300, 0],
       rotation: [0, 0, 0],
+      url: "https://www.google.com",
     },
     {
       id: 5,
@@ -50,12 +53,9 @@ export default function Texts({props}) {
       text: "Per qualsiasi informazione o preventivo",
       position: [0, 300, 0],
       rotation: [0, 0, 0],
+      url: "https://www.google.com",
     },
   ]
-
-  const clicked = (e) => {
-    console.log(e);
-  }
 
   return (
     <>
@@ -70,7 +70,7 @@ export default function Texts({props}) {
         >
           <h2>{area.title}</h2>
           <p>{area.text}</p>
-          <button onClick={clicked} className="btn">Scopri di più</button>
+          <a href={area.url} className="btn">Scopri di più</a>
         </Html>
       ))}
     </>
