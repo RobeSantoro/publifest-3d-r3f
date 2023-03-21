@@ -13,22 +13,22 @@ export default function Texts({props}) {
       id: 0,
       title: "Eventi Aziendali",
       text: "Organizzazione di meeting e eventi aziendali",
-      position: [11, 9, 33],
-      rotation: [0, 0.85, 0],
+      position: [11, 11, 33],
+      rotation: [0, 0.72, 0],
     },
     {
       id: 1,
       title: "Cerimonie",
       text: " Ogni tipo di cerimonia: dai Battesimi ai Matrimoni",
-      position: [15, 9, 98.5],
+      position: [15, 10, 98.5],
       rotation: [0, -1.585, 0],
     },
     {
       id: 2,
       title: "Sagre e Feste",
       text: "Organizzazione di sagre e feste di ogni tipo",
-      position: [0, 300, 0],
-      rotation: [0, 0, 0],
+      position: [-232, 11, 87],
+      rotation: [0, 2.30, 0],
     },
     {
       id: 3,
@@ -70,7 +70,7 @@ export default function Texts({props}) {
         >
           <h2>{area.title}</h2>
           <p>{area.text}</p>
-          <button onClick={clicked} className="btn">Scopri di più</button>
+          <a onClick={clicked} className="btn">Scopri di più</a>
         </Html>
       ))}
     </>
