@@ -10,15 +10,15 @@ export default function Ground(props) {
         resolution={2048}
         mixBlur={10}
         mixStrength={3}
-        blur={[2000, 2000]}
+        blur={[1000, 1000]}
         minDepthThreshold={0.4}
         maxDepthThreshold={1.4}
         depthScale={0}
         depthToBlurRatioBias={0.1}
         attach={'material'}
         color="#ffffff"
-        roughness={0.4}
-        metalness={0.1}
+        roughness={0.5}
+        metalness={0.5}
       />
     </mesh>
 

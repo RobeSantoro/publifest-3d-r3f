@@ -16,14 +16,14 @@ export default function World() {
 
   return (
     <>
-      <ScrollControls pages={6} damping={0.25}>
+      <ScrollControls pages={3} damping={0.5}>
         <Texts style={{zIndex: 100}} />
         <Camera multiplier={globalScrollMultiplier} />
         <Meeting multiplier={globalScrollMultiplier} />
         <Cerimonie multiplier={globalScrollMultiplier} />
         <Sagre multiplier={globalScrollMultiplier} />
         <Ground
-          position={[0, 0, -50]}
+          position={[-50, -0.1, -50]}
           scale={[500, 500, 500]}
           multiplier={globalScrollMultiplier} />
       </ScrollControls>
