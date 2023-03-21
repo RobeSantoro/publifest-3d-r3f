@@ -1,6 +1,7 @@
 import React from 'react';
 import {Html, useScroll} from '@react-three/drei';
 import './Texts.css';
+import {FrontSide} from 'three';
 
 export default function Texts({props}) {
 
@@ -67,10 +68,12 @@ export default function Texts({props}) {
           position={area.position}
           rotation={area.rotation}
           portal={{current: scrollData.fixed}}
-        >
+          style={{opacity: 1}}>
           <h2>{area.title}</h2>
           <p>{area.text}</p>
-          <a href={area.url} className="btn">Scopri di più</a>
+          <a href={area.url} className="btn">
+            Scopri di più
+          </a>
         </Html>
       ))}
     </>
