@@ -8,6 +8,7 @@ const Cerimonie = lazy(() => import("./Cerimonie"));
 const Sagre = lazy(() => import("./Sagre"));
 
 import Texts from "./Texts/Texts";
+import Overlays from './Overlays';
 
 export default function World() {
 
@@ -27,6 +28,7 @@ export default function World() {
           scale={[500, 500, 500]}
           multiplier={globalScrollMultiplier} />
         <Texts />
+        {/* <Overlays /> */}
       </ScrollControls>
       <fog attach="fog" args={['white', 0.0001, 70]} />
       <Environment preset="city" blur={1} background={false} />

@@ -20,24 +20,26 @@ function Loading() {
 export default function App() {
 
   return (
-    <Canvas
-      frameloop='always'
-      shadows
-      dpr={[1, 2]}
-      gl={{alpha: true, antialias: true, preserveDrawingBuffer: true}}
-      camera={{fov: 100, position: [0, 0, 10], near: 1, far: 500}}>
+    <>
+      <Canvas
+        frameloop='always'
+        shadows
+        dpr={[1, 2]}
+        gl={{alpha: true, antialias: true, preserveDrawingBuffer: true}}
+        camera={{fov: 100, position: [0, 0, 10], near: 1, far: 500}}>
 
-      <ambientLight intensity={0.3} />
+        <ambientLight intensity={0.3} />
 
-      <Suspense fallback={<Loading />}>
-        <World />
-      </Suspense>
+        <Suspense fallback={<Loading />}>
+          <World />
+        </Suspense>
 
-      {/* <OrbitControls makeDefault /> */}
+        {/* <OrbitControls makeDefault /> */}
+        {/* <Perf position="bottom-right" /> */}
+        {/* <Stats /> */}
 
-      <Perf position="bottom-right" />
-      {/* <Stats /> */}
-    </Canvas>
+      </Canvas>
+    </>
   )
 }
 
