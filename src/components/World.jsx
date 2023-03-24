@@ -6,22 +6,26 @@ import Camera from "./Camera";
 import Meeting from "./Meeting";
 const Cerimonie = lazy(() => import("./Cerimonie"));
 const Sagre = lazy(() => import("./Sagre"));
+const Industria = lazy(() => import("./Industria"));
+const Fiere = lazy(() => import("./Fiere"));
 
 import Texts from "./Texts/Texts";
 import Overlays from './Overlays';
 
 export default function World() {
 
-  const globalScrollMultiplier = 6
+  const globalScrollMultiplier = 10;
 
   return (
     <>
-      <ScrollControls pages={3} damping={0.5}>
+      <ScrollControls pages={6} damping={0.5}>
         <Camera multiplier={globalScrollMultiplier} />
         <Meeting multiplier={globalScrollMultiplier} />
         <Suspense fallback={null}>
           <Cerimonie multiplier={globalScrollMultiplier} />
           <Sagre multiplier={globalScrollMultiplier} />
+          <Industria multiplier={globalScrollMultiplier} />
+          <Fiere multiplier={globalScrollMultiplier} />
         </Suspense>
         <Ground
           position={[-50, -0.025, -50]}
