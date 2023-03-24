@@ -35,8 +35,8 @@ export default function App() {
         </Suspense>
 
         {/* <OrbitControls makeDefault /> */}
-        {/* <Perf position="bottom-right" /> */}
-        {/* <Stats /> */}
+        <Perf position="bottom-right" />
+        <Stats />
 
       </Canvas>
     </>
