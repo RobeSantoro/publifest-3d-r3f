@@ -7,7 +7,7 @@ export default function Cerimonie(props) {
 
   const scrollData = useScroll()
 
-  const {scene, animations} = useGLTF('/cerimonie-transformed.glb')
+  const {scene, animations} = useGLTF('/cerimonie-transformed.glb', false)
   const {actions} = useAnimations(animations, scene)
 
   useEffect(() => void (actions['cerimonie'].play().paused = true), [actions])

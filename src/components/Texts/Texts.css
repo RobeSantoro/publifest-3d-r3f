@@ -8,7 +8,6 @@
 
 .AreaTematica>h2 {
   margin: 0;
-
   color: #023976;
   margin-bottom: 10px;
   font-size: 3em;
@@ -18,7 +17,7 @@
 .AreaTematica>p {
   color: #002753;
   font-size: 1em;
-  width: calc(30vh + 30vw);
+  width: calc(31vh + 31vw);
 }
 
 .btn {

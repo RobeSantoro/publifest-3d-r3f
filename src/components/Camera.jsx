@@ -13,25 +13,22 @@ export default function Camera(props) {
 
     useEffect(() => void (actions['camera'].play().paused = true), [actions])
 
-    useFrame((state, delta) => {
+    useFrame(({ mouse, camera }) => {
         const action = actions['camera']
         action.time = scrollData.offset * props.multiplier
         
         const camera_null = nodes['Camera_Pos'].position
         const camera_aim_null = nodes['Camera_Aim'].position
-        state.camera.lookAt(...camera_aim_null)
-        state.camera.position.set(...camera_null)
-        state.camera.updateProjectionMatrix()
+                
+        camera.position.x = camera_null.x
+        camera.position.y = camera_null.y
+        camera.position.z = camera_null.z
 
-        fogFar = THREE.MathUtils.lerp(10, 90, scrollData.offset*100)
+        camera.lookAt(...camera_aim_null)
+        // camera.updateProjectionMatrix()
     })
 
-    return (
-        <>
-            <primitive object={scene} props />
-            <fog attach="fog" args={['white', 0.0001, fogFar]} />
-        </>
-    )
+    return <primitive object={scene} props />
 }
 
 useGLTF.preload('/camera-transformed.glb')

@@ -6,7 +6,7 @@ export default function Meeting(props) {
 
     const scrollData = useScroll()
 
-    const {scene, animations, nodes} = useGLTF('/meeting-transformed.glb')
+    const {scene, animations, nodes} = useGLTF('/meeting-transformed.glb', false)
     const {actions} = useAnimations(animations, scene)
 
     useEffect(() => void (actions['meeting'].play().paused = true), [actions])
