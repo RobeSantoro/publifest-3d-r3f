@@ -1,5 +1,5 @@
-import {lazy, Suspense} from 'react'
-import {ScrollControls, Environment} from '@react-three/drei'
+import { lazy, Suspense } from 'react'
+import { ScrollControls, Environment } from '@react-three/drei'
 
 import Ground from "./Ground";
 import Camera from "./Camera";
@@ -11,6 +11,7 @@ const Fiere = lazy(() => import("./areas/Fiere"));
 
 import Texts from "./Overlays/Texts";
 import Overlays from './Overlays/Overlays';
+import { useFrame } from '@react-three/fiber';
 
 export default function World() {
 
@@ -27,13 +28,14 @@ export default function World() {
           <Industria multiplier={globalScrollMultiplier} />
           <Fiere multiplier={globalScrollMultiplier} />
         </Suspense>
-        <Ground
-          scale={[500, 500, 500]}
-          multiplier={globalScrollMultiplier} />
         <Texts />
         {/* <Overlays /> */}
+        <fog attach="fog" args={['white', 0.0001, 100]} />
       </ScrollControls>
-      <fog attach="fog" args={['white', 0.0001, 70]} />
+      <Ground
+        position={[-500, -0.01, -100]}
+        scale={[2500, 1500, 1]}
+      />
       <Environment preset="city" blur={1} background={false} />
     </>
   )
