@@ -3,14 +3,14 @@ import {ScrollControls, Environment} from '@react-three/drei'
 
 import Ground from "./Ground";
 import Camera from "./Camera";
-import Meeting from "./Meeting";
-const Cerimonie = lazy(() => import("./Cerimonie"));
-const Sagre = lazy(() => import("./Sagre"));
-const Industria = lazy(() => import("./Industria"));
-const Fiere = lazy(() => import("./Fiere"));
+import Meeting from "./areas/Meeting";
+const Cerimonie = lazy(() => import("./areas/Cerimonie"));
+const Sagre = lazy(() => import("./areas/Sagre"));
+const Industria = lazy(() => import("./areas/Industria"));
+const Fiere = lazy(() => import("./areas/Fiere"));
 
-import Texts from "./Texts/Texts";
-import Overlays from './Overlays';
+import Texts from "./Overlays/Texts";
+import Overlays from './Overlays/Overlays';
 
 export default function World() {
 
@@ -28,7 +28,6 @@ export default function World() {
           <Fiere multiplier={globalScrollMultiplier} />
         </Suspense>
         <Ground
-          position={[-50, -0.025, -50]}
           scale={[500, 500, 500]}
           multiplier={globalScrollMultiplier} />
         <Texts />
