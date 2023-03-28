@@ -3,6 +3,8 @@ import { useEffect } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useScroll, useGLTF, useAnimations } from '@react-three/drei'
 
+import Overlays from "./Overlays/Overlays";
+
 export default function Camera(props) {
 
     const scrollData = useScroll()
@@ -27,7 +29,13 @@ export default function Camera(props) {
         // camera.updateProjectionMatrix()
     })
 
-    return <primitive object={scene} props />
+    return (
+        <>
+            <primitive object={scene} props >
+                <Overlays />
+            </primitive>
+        </>
+    )
 }
 
 useGLTF.preload('/camera-transformed.glb')
