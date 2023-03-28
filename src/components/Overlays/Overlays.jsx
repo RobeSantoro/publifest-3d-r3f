@@ -3,6 +3,8 @@ import { Html } from '@react-three/drei'
 import { useScroll } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
 
+import './Overlays.css'
+
 export default function Overlays() {
 
   const scrollData = useScroll();
@@ -22,8 +24,8 @@ export default function Overlays() {
         portal={{ current: gl.domElement.parentElement }}
         occlude
       >
-        <div className='overlays'>
-          <a className='arrow' onClick={handleClick}>scroll</a>
+        <div className='overlays' onClick={handleClick}>
+          <a className='arrow'>scroll</a>
         </div>
       </Html>
 
