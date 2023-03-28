@@ -1,36 +1,41 @@
-import {lazy, Suspense} from 'react'
-import {ScrollControls, Environment} from '@react-three/drei'
+import { lazy, Suspense } from 'react'
+import { ScrollControls, Environment } from '@react-three/drei'
 
 import Ground from "./Ground";
 import Camera from "./Camera";
-import Meeting from "./Meeting";
-const Cerimonie = lazy(() => import("./Cerimonie"));
-const Sagre = lazy(() => import("./Sagre"));
+import Meeting from "./areas/Meeting";
+const Cerimonie = lazy(() => import("./areas/Cerimonie"));
+const Sagre = lazy(() => import("./areas/Sagre"));
+const Industria = lazy(() => import("./areas/Industria"));
+const Fiere = lazy(() => import("./areas/Fiere"));
 
-import Texts from "./Texts/Texts";
-import Overlays from './Overlays';
+import Texts from "./Overlays/Texts";
+import Overlays from './Overlays/Overlays';
+import { useFrame } from '@react-three/fiber';
 
 export default function World() {
 
-  const globalScrollMultiplier = 6
+  const globalScrollMultiplier = 10;
 
   return (
     <>
-      <ScrollControls pages={3} damping={0.5}>
+      <ScrollControls pages={6} damping={0.5}>
         <Camera multiplier={globalScrollMultiplier} />
         <Meeting multiplier={globalScrollMultiplier} />
         <Suspense fallback={null}>
           <Cerimonie multiplier={globalScrollMultiplier} />
           <Sagre multiplier={globalScrollMultiplier} />
+          <Industria multiplier={globalScrollMultiplier} />
+          <Fiere multiplier={globalScrollMultiplier} />
         </Suspense>
-        <Ground
-          position={[-50, -0.025, -50]}
-          scale={[500, 500, 500]}
-          multiplier={globalScrollMultiplier} />
         <Texts />
         {/* <Overlays /> */}
+        <fog attach="fog" args={['white', 0.0001, 100]} />
       </ScrollControls>
-      <fog attach="fog" args={['white', 0.0001, 70]} />
+      <Ground
+        position={[-500, -0.01, -100]}
+        scale={[2500, 1500, 1]}
+      />
       <Environment preset="city" blur={1} background={false} />
     </>
   )

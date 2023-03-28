@@ -1,9 +1,9 @@
 import React from 'react';
-import {Html, useScroll} from '@react-three/drei';
+import { Html, useScroll } from '@react-three/drei';
 import './Texts.css';
-import {FrontSide} from 'three';
+import { FrontSide } from 'three';
 
-export default function Texts({props}) {
+export default function Texts({ props }) {
 
   const scrollData = useScroll();
 
@@ -36,8 +36,8 @@ export default function Texts({props}) {
       id: 3,
       title: "Industria",
       text: "Capannoni per magazzini, officine, laboratori, uffici",
-      position: [0, 300, 0],
-      rotation: [0, 0, 0],
+      position: [-640, 12, -11],
+      rotation: [0, 2.1, 0],
       url: "https://www.google.com",
     },
     {
@@ -67,8 +67,8 @@ export default function Texts({props}) {
           transform
           position={area.position}
           rotation={area.rotation}
-          portal={{current: scrollData.fixed}}
-          style={{opacity: 1}}>
+          portal={{ current: scrollData.fixed }}
+          style={{ opacity: 1 }}>
           <h2>{area.title}</h2>
           <p>{area.text}</p>
           <a href={area.url} className="btn">
