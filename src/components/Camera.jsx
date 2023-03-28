@@ -24,7 +24,6 @@ export default function Camera(props) {
         camera.position.z = camera_null.z
 
         camera.lookAt(...camera_aim_null)
-        // camera.updateProjectionMatrix()
     })
 
     return <primitive object={scene} props />
