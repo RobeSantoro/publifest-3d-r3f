@@ -10,8 +10,6 @@ const Industria = lazy(() => import("./areas/Industria"));
 const Fiere = lazy(() => import("./areas/Fiere"));
 
 import Texts from "./Overlays/Texts";
-import Overlays from './Overlays/Overlays';
-import { useFrame } from '@react-three/fiber';
 
 export default function World() {
 
@@ -19,7 +17,7 @@ export default function World() {
 
   return (
     <>
-      <ScrollControls pages={6} damping={0.5}>
+      <ScrollControls pages={6} damping={0.5} maxSpeed={0.25}>
         <Camera multiplier={globalScrollMultiplier} />
         <Meeting multiplier={globalScrollMultiplier} />
         <Suspense fallback={null}>
@@ -30,7 +28,6 @@ export default function World() {
         </Suspense>
         <Texts />
         <fog attach="fog" args={['white', 0.0001, 100]} />
-        {/* <Overlays /> */}
       </ScrollControls>
       <Ground
         position={[-500, -0.01, -100]}

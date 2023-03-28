@@ -1,30 +1,16 @@
-import { Suspense, useState } from 'react'
+import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { Html, OrbitControls, Stats, useProgress } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
 
+import Loading from './components/Loading'
 import World from './components/World'
 import Overlays from './components/Overlays/Overlays'
 
-function Loading() {
-  const { progress } = useProgress()
-
-  return <Html center prepend as='div' style={{
-    color: '#002753',
-    padding: '1rem',
-    fontSize: '1rem',
-    fontWeight: 'bold'
-  }}
-  > {progress.toFixed(0)}%</Html>
-}
-
 export default function App() {
-
-  const [globalScroll, setGlobalScroll] = useState(0)
 
   return (
     <>
-      <Overlays scroll={globalScroll}/>
+      <Overlays/>
 
       <Canvas
         frameloop='always'
@@ -38,9 +24,7 @@ export default function App() {
           <World />
         </Suspense>
 
-        {/* <OrbitControls makeDefault /> */}
-        {/* <Perf position="bottom-right" /> */}
-        {/* <Stats /> */}
+        <Perf position="bottom-right" />
 
       </Canvas>
     </>
