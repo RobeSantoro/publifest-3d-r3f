@@ -1,11 +1,18 @@
 import React from 'react';
 import { Html, useScroll } from '@react-three/drei';
+import { useThree } from '@react-three/fiber';
+
 import './Texts.css';
-import { FrontSide } from 'three';
 
 export default function Texts({ props }) {
 
   const scrollData = useScroll();
+  const gl = useThree((state) => state.gl);
+
+  const handleClick = () => {
+    const scrollTop = scrollData.el.scrollTop
+    scrollData.el.scrollTo({ top: scrollTop + window.innerHeight, behavior: 'smooth' })
+  }
 
   const Areas = [
     {
@@ -61,20 +68,32 @@ export default function Texts({ props }) {
   return (
     <>
       {Areas.map((area) => (
-        <Html
-          className="AreaTematica"
-          key={area.id}
-          transform
-          position={area.position}
-          rotation={area.rotation}
-          portal={{ current: scrollData.fixed }}
-          style={{ opacity: 1 }}>
-          <h2>{area.title}</h2>
-          <p>{area.text}</p>
-          <a href={area.url} className="btn">
-            Scopri di più
-          </a>
-        </Html>
+        <group key={area.id}>
+          <Html
+            className="AreaTematica"
+            transform
+            position={area.position}
+            rotation={area.rotation}
+            portal={{ current: scrollData.fixed }}
+          >
+            <h2>{area.title}</h2>
+            <p>{area.text}</p>
+            <a href={area.url} className="btn">
+              Scopri di più
+            </a>
+          </Html>
+          {/* <Html
+            transform
+            scale={[2, 2, 2]}
+            position={[area.position[0], area.position[1] - 15, area.position[2]]}
+            sprite
+            portal={{ current: gl.domElement.parentElement }}
+          >
+            <div className='overlays'>
+              <a className='arrow' onClick={handleClick}>scroll</a>
+            </div>
+          </Html> */}
+        </group>
       ))}
     </>
   )
