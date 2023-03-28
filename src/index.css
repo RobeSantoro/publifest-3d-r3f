@@ -38,7 +38,7 @@ canvas {
 }
 
 .arrow {
-  font-size: 0.6em;
+  font-size: 0.65em;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -50,8 +50,8 @@ canvas {
   content: "";
   position: absolute;
   top: 100%;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
   border-top: 10px solid #023976;
 }
 

@@ -27,6 +27,7 @@ export default function World() {
             <Sagre multiplier={globalScrollMultiplier} />
             <Industria multiplier={globalScrollMultiplier} />
             <Fiere multiplier={globalScrollMultiplier} />
+            <Overlays />
           </Suspense>
 
           <Texts />

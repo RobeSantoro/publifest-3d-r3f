@@ -10,22 +10,22 @@ export default function Overlays() {
 
   const handleClick = () => {
     const scrollTop = scrollData.el.scrollTop
-    scrollData.el.scrollTo({top: scrollTop + window.innerHeight, behavior: 'smooth'})
+    scrollData.el.scrollTo({ top: scrollTop + window.innerHeight, behavior: 'smooth' })
   }
 
   return (
-    <>
-     <Html
+
+      <Html
         transform
-        position={[0, 0, 0]}
+        position={[0, 0, 1]}
         sprite
         portal={{ current: gl.domElement.parentElement }}
         occlude
       >
-      {/* <div className='overlays'> */}
-        <a className='arrow' onClick={handleClick}>scroll</a>
-      {/* </div> */}
+        <div className='overlays'>
+          <a className='arrow' onClick={handleClick}>scroll</a>
+        </div>
       </Html>
-    </>
+
   )
 }
