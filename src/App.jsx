@@ -1,8 +1,9 @@
-import { Suspense } from 'react'
+import { lazy, Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Perf } from 'r3f-perf'
 import Loading from './components/Loading'
-import World from './components/World'
+
+const World = lazy(() => import('./components/World'))
 
 export default function App() {
 
@@ -18,7 +19,7 @@ export default function App() {
         <Suspense fallback={<Loading />}>
           <World />
         </Suspense>
-        {/* <Perf position="bottom-right" /> */}
+        <Perf position="bottom-right" />
       </Canvas>
     </>
   )
