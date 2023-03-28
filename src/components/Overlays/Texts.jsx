@@ -11,7 +11,7 @@ export default function Texts({ props }) {
     {
       id: 0,
       title: "Eventi Aziendali",
-      text: "Organizzazione di meeting e eventi aziendali",
+      text: "Allestimenti e catering per meeting ed eventi aziendali",
       position: [11, 11, 33],
       rotation: [0, 0.72, 0],
       url: "https://www.google.com",
@@ -19,7 +19,7 @@ export default function Texts({ props }) {
     {
       id: 1,
       title: "Cerimonie",
-      text: " Ogni tipo di cerimonia: dai Battesimi ai Matrimoni",
+      text: "Catering e allestimenti per cerimonie: dai Battesimi ai Matrimoni",
       position: [15, 10, 98.5],
       rotation: [0, -1.585, 0],
       url: "https://www.google.com",
@@ -27,7 +27,7 @@ export default function Texts({ props }) {
     {
       id: 2,
       title: "Sagre e Feste",
-      text: "Organizzazione di sagre e feste di ogni tipo",
+      text: "Ogni tipo di noleggio: dalla cucina alla tavola",
       position: [-232, 11, 87],
       rotation: [0, 2.30, 0],
       url: "https://www.google.com",
@@ -43,7 +43,7 @@ export default function Texts({ props }) {
     {
       id: 4,
       title: "Fiere e Grandi Eventi",
-      text: "Organizzazione di fiere e grandi eventi",
+      text: "Allestimenti e catering di fiere e grandi eventi",
       position: [0, 300, 0],
       rotation: [0, 0, 0],
       url: "https://www.google.com",

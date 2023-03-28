@@ -1,9 +1,10 @@
-import { Suspense } from 'react'
+import { Suspense, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Html, OrbitControls, Stats, useProgress } from '@react-three/drei'
 import { Perf } from 'r3f-perf'
 
 import World from './components/World'
+import Overlays from './components/Overlays/Overlays'
 
 function Loading() {
   const { progress } = useProgress()
@@ -19,8 +20,12 @@ function Loading() {
 
 export default function App() {
 
+  const [globalScroll, setGlobalScroll] = useState(0)
+
   return (
     <>
+      <Overlays scroll={globalScroll}/>
+
       <Canvas
         frameloop='always'
         dpr={[1, 2]}

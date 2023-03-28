@@ -29,8 +29,8 @@ export default function World() {
           <Fiere multiplier={globalScrollMultiplier} />
         </Suspense>
         <Texts />
-        {/* <Overlays /> */}
         <fog attach="fog" args={['white', 0.0001, 100]} />
+        {/* <Overlays /> */}
       </ScrollControls>
       <Ground
         position={[-500, -0.01, -100]}

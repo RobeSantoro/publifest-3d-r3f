@@ -1,15 +1,20 @@
-import {Html, useScroll} from '@react-three/drei'
-import React from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 
-export default function Overlays() {
+export default function Overlays(...props) {
 
-    const scrollData = useScroll();
+  useLayoutEffect(() => {
+    console.log(props.scroll);
+  
+    return () => {
+      props.scroll
+    };
+  }, [props.scroll])
 
-    return (
-        <Html portal={{current: scrollData.fixed}}>
-        <div className='overlays'>
-            <button className='arrow'>Scroll</button>
-        </div>
-        </Html>
-    )
+  return (
+    <>
+      <div className='overlays'>
+        <a className='arrow'>scroll</a>
+      </div>
+    </>
+  )
 }
