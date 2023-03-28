@@ -29,29 +29,3 @@ canvas {
   image-rendering: optimize-contrast;
 }
 
-.overlays {
-  position: absolute;
-  top: 85%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10 !important;
-}
-
-.arrow {
-  font-size: 0.65em;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  z-index: 20 !important;
-  opacity: 1;
-}
-
-.arrow::before {
-  content: "";
-  position: absolute;
-  top: 100%;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid #023976;
-}
-
