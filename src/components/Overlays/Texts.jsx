@@ -49,11 +49,11 @@ export default function Texts() {
     },
     {
       id: 4,
-      title: "Fiere e Grandi Eventi",
+      title: "Eventi Sportivi e Fiere",
       shortTitle: "fiere",
       text: "Allestimenti e catering di fiere e grandi eventi",
-      position: [0, 300, 0],
-      rotation: [0, 0, 0],
+      position: [-1160, 13, -410],
+      rotation: [0, 1.36, 0],
       url: "https://www.google.com",
     },
     {
