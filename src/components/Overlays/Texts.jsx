@@ -52,19 +52,10 @@ export default function Texts() {
       title: "Eventi Sportivi e Fiere",
       shortTitle: "fiere",
       text: "Allestimenti e catering di fiere e grandi eventi",
-      position: [-1160, 13, -410],
-      rotation: [0, 1.36, 0],
+      position: [-1157, 11, -410],
+      rotation: [0, 1.3, 0],
       url: "https://www.google.com",
-    },
-    {
-      id: 5,
-      title: "Contattaci",
-      shortTitle: "contattaci",
-      text: "Per qualsiasi informazione o preventivo",
-      position: [0, 300, 0],
-      rotation: [0, 0, 0],
-      url: "https://www.google.com",
-    },
+    }
   ]
 
   useFrame(({ camera }) => {
