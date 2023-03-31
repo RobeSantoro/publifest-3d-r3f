@@ -21,14 +21,13 @@ export default function World() {
       <ScrollControls pages={6} damping={0.5} maxSpeed={0.25}>
         <Camera multiplier={globalScrollMultiplier} />
 
-        <Suspense fallback={null}>
           <Meeting multiplier={globalScrollMultiplier} />
           <Cerimonie multiplier={globalScrollMultiplier} />
           <Sagre multiplier={globalScrollMultiplier} />
           <Industria multiplier={globalScrollMultiplier} />
           <Fiere multiplier={globalScrollMultiplier} />
           <Overlays />
-        </Suspense>
+
 
         <Texts />
         <fog attach="fog" args={['white', 0.0001, 100]} />
