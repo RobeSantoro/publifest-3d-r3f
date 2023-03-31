@@ -28,7 +28,7 @@ export default function industria(props) {
         const action = actions['industria']
         action.time = scrollData.offset * props.multiplier
 
-        if (scrollData.offset > 0.62) {
+        if (scrollData.offset > 0.55) {
             actions['forklift'].play().paused = false
         }
 

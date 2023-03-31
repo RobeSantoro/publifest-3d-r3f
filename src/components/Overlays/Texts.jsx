@@ -16,7 +16,7 @@ export default function Texts() {
       title: "Eventi Aziendali",
       shortTitle: "eventi",
       text: "Allestimenti e catering per meeting ed eventi aziendali",
-      position: [11, 11, 33],
+      position: [11, 12, 33],
       rotation: [0, 0.72, 0],
       url: "https://www.google.com",
     },
@@ -25,7 +25,7 @@ export default function Texts() {
       title: "Cerimonie",
       shortTitle: "cerimonie",
       text: "Catering e allestimenti per cerimonie: dai Battesimi ai Matrimoni",
-      position: [15, 10, 98.5],
+      position: [16, 10, 98],
       rotation: [0, -1.585, 0],
       url: "https://www.google.com",
     },
@@ -43,28 +43,19 @@ export default function Texts() {
       title: "Industria",
       shortTitle: "industria",
       text: "Capannoni per magazzini, officine, laboratori, uffici",
-      position: [-640, 12, -11],
+      position: [-640, 10.5, -11],
       rotation: [0, 2.1, 0],
       url: "https://www.google.com",
     },
     {
       id: 4,
-      title: "Fiere e Grandi Eventi",
+      title: "Eventi Sportivi e Fiere",
       shortTitle: "fiere",
       text: "Allestimenti e catering di fiere e grandi eventi",
-      position: [0, 300, 0],
-      rotation: [0, 0, 0],
+      position: [-1152, 10.3, -409],
+      rotation: [0, 1.4, 0],
       url: "https://www.google.com",
-    },
-    {
-      id: 5,
-      title: "Contattaci",
-      shortTitle: "contattaci",
-      text: "Per qualsiasi informazione o preventivo",
-      position: [0, 300, 0],
-      rotation: [0, 0, 0],
-      url: "https://www.google.com",
-    },
+    }
   ]
 
   useFrame(({ camera }) => {
@@ -94,6 +85,7 @@ export default function Texts() {
           position={area.position}
           rotation={area.rotation}
           portal={{ current: scrollData.fixed }}
+          sprite={area.shortTitle === "fiere"}
         >
 
           <h2>{area.title}</h2>
@@ -103,7 +95,6 @@ export default function Texts() {
           </a>
 
         </Html>
-
       ))}
     </>
   )

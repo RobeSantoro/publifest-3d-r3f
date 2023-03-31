@@ -6,10 +6,11 @@
     transform: translate(-50%, -50%);
     z-index: 10 !important;
     cursor: pointer;
+    color: #b1b1b4;
   }
   
   .arrow {
-    font-size: 0.65em;
+    font-size: 0.6em;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -21,8 +22,8 @@
     content: "";
     position: absolute;
     top: 100%;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid #023976;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #b1b1b4;
   }
   

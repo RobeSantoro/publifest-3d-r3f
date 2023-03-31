@@ -10,7 +10,7 @@ body,
 }
 
 body {
-  position: fixed;
+  /* position: fixed; */
   /* overflow: hidden; */
   overscroll-behavior-y: none;
   background-color: #b9b9b9;
@@ -25,7 +25,6 @@ canvas {
   z-index: -10 !important;
   image-rendering: -moz-crisp-edges;
   image-rendering: -webkit-optimize-contrast;
-  image-rendering: pixelated;
-  image-rendering: optimize-contrast;
+  image-rendering: crisp-edges;
 }
 

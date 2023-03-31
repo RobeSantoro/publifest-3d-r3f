@@ -19,7 +19,7 @@ export default function App() {
         <Suspense fallback={<Loading />}>
           <World />
         </Suspense>
-        <Perf position="bottom-right" />
+        {/* <Perf position="bottom-right" /> */}
       </Canvas>
     </>
   )
