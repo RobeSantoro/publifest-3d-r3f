@@ -1,9 +1,9 @@
-import { lazy, Suspense } from 'react'
+import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Perf } from 'r3f-perf'
 import Loading from './components/Loading'
 
-const World = lazy(() => import('./components/World'))
+import World from './components/World'
 
 export default function App() {
 
