@@ -91,7 +91,7 @@ export default function Texts() {
           <h2>{area.title}</h2>
           <p>{area.text}</p>
           <a href={area.url} className="btn">
-            Scopri di più
+            Show more
           </a>
 
         </Html>
