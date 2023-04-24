@@ -14,7 +14,7 @@ export default function App() {
         frameloop='always'
         dpr={[1, 2]}
         gl={{ alpha: true, antialias: true, preserveDrawingBuffer: true }}
-        camera={{ fov: 100, position: [0, 0, 10], near: 1, far: 1000 }}>
+        camera={{ fov: 100, position: [0, 0, 10000], near: 1, far: 1000 }}>
         <ambientLight intensity={0.3} />
         <Suspense fallback={<Loading />}>
           <World />
