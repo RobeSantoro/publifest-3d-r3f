@@ -25,8 +25,8 @@ export default function Texts() {
       title: "Cerimonie",
       shortTitle: "cerimonie",
       text: "Catering e allestimenti per cerimonie: dai Battesimi ai Matrimoni",
-      position: [16, 10, 98],
-      rotation: [0, -1.585, 0],
+      position: [3, 10, 102],
+      rotation: [0, -1.2, 0],
       url: "https://www.google.com",
     },
     {

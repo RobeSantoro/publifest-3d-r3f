@@ -10,6 +10,7 @@ export default function sagre(props) {
     const {actions} = useAnimations(animations, scene)
 
     useEffect(() => void (actions['sagre'].play().paused = true), [actions])
+    useEffect(() => void (actions['Baloon'].play().paused = true), [actions])
 
     useFrame((state, delta) => {
         const action = actions['sagre']
@@ -17,6 +18,10 @@ export default function sagre(props) {
 
         const carosello = nodes['carosello']
         carosello.rotation.y = carosello.rotation.y + 0.01
+
+        if (scrollData.offset > 0.25) {
+            actions['Baloon'].play().paused = false
+        }
     })
 
     return <primitive object={scene} props />
