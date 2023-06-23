@@ -12,13 +12,6 @@ const Fiere = lazy(() => import("./areas/Fiere"));
 import Texts from "./Overlays/Texts";
 import Overlays from "./Overlays/Overlays";
 
-import nx from '/nx.png'
-import px from '/px.png'
-import py from '/py.png'
-import ny from '/ny.png'
-import nz from '/nz.png'
-import pz from '/pz.png'
-
 export default function World() {
 
   const globalScrollMultiplier = 10;
