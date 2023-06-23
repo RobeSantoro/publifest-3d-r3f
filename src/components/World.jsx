@@ -12,6 +12,13 @@ const Fiere = lazy(() => import("./areas/Fiere"));
 import Texts from "./Overlays/Texts";
 import Overlays from "./Overlays/Overlays";
 
+import nx from '/nx.png'
+import px from '/px.png'
+import py from '/py.png'
+import ny from '/ny.png'
+import nz from '/nz.png'
+import pz from '/pz.png'
+
 export default function World() {
 
   const globalScrollMultiplier = 10;
@@ -34,7 +41,7 @@ export default function World() {
       </ScrollControls>
 
       <Ground position={[-500, -0.01, -100]} scale={[2500, 1500, 1]} />
-      <Environment preset="city" blur={1} background={false} />
+      <Environment files={['/px.png', '/nx.png', '/py.png', '/ny.png', '/pz.png', '/nz.png']} blur={1} background={false} />
     </>
   )
 }
