@@ -19,17 +19,18 @@ export default function World() {
   return (
     <>
       <ScrollControls pages={6} damping={0.5} maxSpeed={0.25}>
+
         <Camera multiplier={globalScrollMultiplier} />
 
-          <Meeting multiplier={globalScrollMultiplier} />
-          <Cerimonie multiplier={globalScrollMultiplier} />
-          <Sagre multiplier={globalScrollMultiplier} />
-          <Industria multiplier={globalScrollMultiplier} />
-          <Fiere multiplier={globalScrollMultiplier} />
-          <Overlays />
-
+        <Meeting multiplier={globalScrollMultiplier} />
+        <Cerimonie multiplier={globalScrollMultiplier} />
+        <Sagre multiplier={globalScrollMultiplier} />
+        <Industria multiplier={globalScrollMultiplier} />
+        <Fiere multiplier={globalScrollMultiplier} />
+        <Overlays />
 
         <Texts />
+        
         <fog attach="fog" args={['white', 0.0001, 100]} />
       </ScrollControls>
 
