@@ -3,7 +3,7 @@
 ## Description
 
 This is the result of a 3D workflow with React Three Fiber and Blender. The project is created with Vite and a custom Blender Addon I'm working on. The addon is not ready yet, but you can find it here:
-[https://github.com/RobeSantoro/blender2drei](https://github.com/RobeSantoro/blender2drei)
+[https://github.com/RobeSantoro/Blender2React](https://github.com/RobeSantoro/Blender2React)
 
 
 ## Installation
